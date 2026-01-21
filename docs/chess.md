@@ -15,7 +15,7 @@ with the first argument, even if no check is performed).
   
 ## Move-related
 
-### `move($sanOrArray): ?Move`
+### `move(string|array $sanOrArray): ?Move`
 
 The main method used to move a piece from a starting position to an ending position.
 You can provide such information as a string in [SAN](https://en.wikipedia.org/wiki/Algebraic_notation_(chess))
@@ -24,7 +24,7 @@ If the move is legal, a [`\Pchess\Chess\Move`](move.md) object is returned.
 
 ### `undo(): ?Move`
   
-Cancels the last move (that is returned). If no move is present in history, the method returns `null`;
+Cancels the last move (which is returned). If no move is present in history, the method returns `null`;
 
 ### `moves(int $square): array`
 
@@ -45,39 +45,43 @@ Alters the board, by putting a new [`\Pchess\Chess\Piece`](piece.md) in a square
 The square must be passed a string, as coded in the [`\Pchess\Chess\Board::SQUARES`](board.md) constant.
 Please note that you cannot put two Kings of the same color on the board. If you do so, the method returns `false`.
 
-## Game situation controls
+### `remove(string $square): bool`
+
+Removes a piece from the board.
+
+## Game situation checks
 
 ### `inCheck(): bool`
 
-Controls if a king is under attack.
+Checks if a king is under attack.
 
 ### `inCheckmate(): bool`
 
-Controls if there's a checkmate.
+Checks if there's a checkmate.
 
 ### `inStalemate(): bool`
 
-Controls if there's a stalemate (i.e., the king cannot make any legal move).
+Checks if there's a stalemate (i.e., the king cannot make any legal move).
 
 ### `insufficientMaterial(): bool`
 
-Controls if material is insufficient to continue the game (e.g. only kings are left).
+Checks if material is insufficient to continue the game (e.g. only kings are left).
 
 ### `inThreefoldRepetition(): bool`
 
-Controls if the same moves were repeated in the last three turns.
+Checks if the same moves were repeated in the last three turns.
 
 ### `halfMovesExceeded(): bool`
 
-Controls if [fifty-move rule](https://en.wikipedia.org/wiki/Fifty-move_rule) is applicable.
+Checks if [fifty-move rule](https://en.wikipedia.org/wiki/Fifty-move_rule) is applicable.
 
 ### `inDraw(): bool`
 
-Controls if there is a draw.
+Checks if there is a draw.
 
 ### `gameOver(): bool`
 
-Controls if the game is over.
+Checks if the game is over.
 
 ## Utilities
 
@@ -87,7 +91,7 @@ Gets the current position in [FEN](https://en.wikipedia.org/wiki/Forsyth%E2%80%9
 
 ### `getHistory(): History`
 
-Gets [`\Pchess\Chess\Board\History`](history.md) object.
+Gets the [`\Pchess\Chess\Board\History`](history.md) object.
 
 ## Public Properties
 
