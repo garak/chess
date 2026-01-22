@@ -118,7 +118,7 @@ final class AttackTest extends TestCase
         $chess = new ChessPublicator(Board::EMPTY);
         $chess->put(new Piece(Piece::KING, Piece::WHITE), 'e7');
         $chess->put(new Piece(Piece::QUEEN, Piece::BLACK), 'e4');
-        self::assertSame($chess->turn, Piece::WHITE);
+        self::assertSame(Piece::WHITE, $chess->turn);
         self::assertTrue($chess->inCheck());
 
         $chess->remove('e7');

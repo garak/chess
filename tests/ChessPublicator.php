@@ -64,7 +64,7 @@ final class ChessPublicator extends Chess
     /**
      * @return array<string, mixed>|int
      */
-    public function perft(int $depth, bool $full = false)
+    public function perft(int $depth, bool $full = false): array|int
     {
         $nodes = 0;
         $captures = 0;

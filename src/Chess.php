@@ -547,7 +547,7 @@ class Chess
      *
      * @param string|array<string, ?string> $sanOrArray E.g. "Nxb7" or ['from' => 'h7', 'to' => 'h8', 'promotion' => 'q']
      */
-    public function move($sanOrArray): ?Move
+    public function move(string|array $sanOrArray): ?Move
     {
         $moveObject = null;
         $moves = $this->generateMoves();
